@@ -29,3 +29,27 @@
 ![Edit hostconfig](task3/edit_hostconfig.png)
 ![Stop container](task3/11_12.png)
 Теперь все снова работает!
+
+
+## Задача 4
+![Volumes](task4/task4.png)
+
+
+## Задача 5
+![portainer](task5/portainer.png)
+Файлом по умолчанию для файла Compose является compose.yaml (предпочтительно) или compose.yml в рабочем каталоге. Compose также поддерживает docker-compose.yaml и docker-compose.yml для обратной совместимости с более ранними версиями. Если существуют оба файла, Compose предпочитает канонический compose.yaml. Поэтому и был запущен только один сервис из файла compose.yaml
+
+После включения в файл compose.yaml через include содержимого файла docker-compose.yaml поднялись оба сервиса
+
+![portainer](task5/start_all.png)
+
+Пушим образ в локальный registry делаем первоначальные настройки и деплоим образ из компоуза через web editor
+![push](task5/tag&push.png)
+![setup](task5/setup.png)
+![deploy](task5/deploy.png)
+![inspect](task5/inspect.png)
+
+Удаляем compose.yaml
+Выходит предупреждение о том, что имеются контейнеры, для которых нет описания в текущем компоузе. Для устранения ошибки нужно запустить команду docker-compose up -d --remove-orphans
+![orphans](task5/remove_orphans.png)
+
